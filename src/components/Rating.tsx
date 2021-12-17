@@ -9,7 +9,7 @@ type RatingPropsType = {
 export function Rating(props: RatingPropsType) {
     console.log("Ratind rendering")
 
-
+//conditional rendering
     return <div>
         <Star selected={props.value > 0}/>
         <Star selected={props.value > 1}/>
