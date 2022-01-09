@@ -2,28 +2,26 @@ import React, {useState} from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 import {action} from "@storybook/addon-actions";
 
-import { Accordion } from './Accordion';
+import UnControlledOnOff from "./UncontrolledOnOff";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Accordion',
-    component: Accordion,
+    title: 'UnControlledOnoff',
+    component: UnControlledOnOff,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
- /*   argTypes: {
-        backgroundColor: {control: 'color'},
-    },*/
+    /*   argTypes: {
+           backgroundColor: {control: 'color'},
+       },*/
 } /*as ComponentMeta<typeof Rating>;*/
 
-const callback = action("accordion mode change event fired")
+const callback = action("on or off clicked")
 
 
- export const MenuCollapsedMode = () => <Accordion titleValue={"Menu"} collapsed={true} onChange={callback} />
- export const UserUnCollapsedMode = () => <Accordion titleValue={"Users"} collapsed={false} onChange={callback} />
+export const onMode = () => <UnControlledOnOff defaultOn={true} onChange={callback}/>
+export const offMode = () => <UnControlledOnOff defaultOn={false} onChange={callback} />
+export const BugMode = () => <div>Unsync when change defaultValue when already rendered</div>
 
-  export const ModeChanging = () => {
-     const [value, setValue] = useState<boolean>(true)
-     return <Accordion titleValue={"Users"} collapsed={value} onChange={() => setValue(!value)}/>
-  }
+export const DefaultInputValue = () => <input defaultValue={"yo"}/>
 /*
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
